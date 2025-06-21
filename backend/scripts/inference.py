@@ -1,4 +1,10 @@
 import os
+import warnings
+# Suppress TensorFlow warnings
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+# Suppress sklearn version warning
+warnings.filterwarnings("ignore", category=UserWarning, module="sklearn")
 import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
