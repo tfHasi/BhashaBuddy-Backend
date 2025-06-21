@@ -1,0 +1,9 @@
+env
+firebase-credentials.json
+__pycache__
+firebase.json.b64
+.env
+char_dataset
+char_dataset_128
+fonts_zip
+.ipynb_checkpoints
