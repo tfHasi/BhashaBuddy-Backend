@@ -7,5 +7,3 @@ pillow
 numpy 
 tensorflow
 scikit-learn
-websockets
-uvicorn[standard]
