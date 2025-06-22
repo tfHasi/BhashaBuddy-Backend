@@ -17,8 +17,8 @@ async def predict_task(
     images: List[UploadFile] = File(...)
 ):
     try:
-        if not (3 <= len(images) <= 6):
-            raise HTTPException(status_code=400, detail="Provide 3 to 6 images")
+        if not (3 <= len(images) <= 9):
+            raise HTTPException(status_code=400, detail="Provide 3 to 9 images")
 
         # Fetch level and task
         level_doc = db.collection("levels").document(str(level_id)).get()
