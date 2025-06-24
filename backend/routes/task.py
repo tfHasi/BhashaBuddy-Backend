@@ -5,6 +5,7 @@ import io
 from datetime import datetime
 from config import get_db
 from scripts.inference import predict_word_from_images
+from websocket_manager import manager
 
 predict_router = APIRouter()
 db = get_db()
@@ -102,8 +103,12 @@ async def predict_task(
                 # Update total stars
                 progress['total_stars'] = sum(lvl.get('stars_earned', 0) for lvl in levels.values())
 
-                # Save back
+                # Save back and broadcast progress
                 student_ref.update({'progress': progress})
+                await manager.broadcast_score_update({
+                    "user_id": student_uid,
+                    "total_stars": progress.get("total_stars", 0)
+                    })
 
         # Final response
         return {
