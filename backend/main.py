@@ -7,7 +7,7 @@ from routes.auth import auth_router
 from routes.websocket import websocket_router
 from routes.level import levels_router
 from routes.task import predict_router
-
+from routes.leaderboard import leaderboard_router
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -23,6 +23,7 @@ app.include_router(auth_router, tags=["Auth"])
 app.include_router(websocket_router, tags=["WebSocket"])
 app.include_router(levels_router, prefix="/levels", tags=["Levels"])
 app.include_router(predict_router, tags=["Task"])
+app.include_router(leaderboard_router, tags=["Leaderboard"])
 
 # Health check endpoint for Koyeb
 @app.get("/health")
