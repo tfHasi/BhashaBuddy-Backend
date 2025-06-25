@@ -32,3 +32,16 @@ class AdminSignup(BaseModel):
 class LoginRequest(BaseModel):
     email: str
     password: str
+
+class LevelUpdate(BaseModel):
+    tasks: List[str]
+    translations: List[str]
+
+class StudentInfo(BaseModel):
+    uid: str
+    sid: str
+    email: str
+    nickname: str
+    current_level: int
+    total_stars: int
+    levels_completed: int
