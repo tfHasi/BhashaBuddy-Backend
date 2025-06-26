@@ -1,4 +1,4 @@
-env
+venv
 firebase-credentials.json
 __pycache__
 firebase.json.b64
